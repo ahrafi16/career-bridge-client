@@ -5,9 +5,12 @@ import Footer from "../pages/Shared/Footer";
 
 const RootLayout = () => {
     return (
-        <div className="">
-            <NavBar></NavBar>
-            <Outlet></Outlet>
+        <div>
+            <div className="px-4 md:px-16 lg:px-24 xl:px-32">
+                <NavBar></NavBar>
+                <Outlet></Outlet>
+
+            </div>
             <Footer></Footer>
         </div>
     );
