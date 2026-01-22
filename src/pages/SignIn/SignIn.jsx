@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const SignIn = () => {
     return (
-        <div className="bg-black justify-items-center min-h-screen px-4 py-12">
+        <div className=" justify-items-center min-h-screen px-4 py-12">
             {/* Soft Backdrop*/}
             <div className='fixed inset-0 -z-1 pointer-events-none'>
                 <div className='absolute left-1/2 top-20 -translate-x-1/2 w-245 h-115 bg-linear-to-tr from-indigo-800/35 to-transparent rounded-full blur-3xl' />

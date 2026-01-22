@@ -4,7 +4,7 @@ import './App.css'
 function App() {
 
   return (
-    <div>
+    <div className=''>
       <h1>Career Bridge</h1>
     </div>
   )
