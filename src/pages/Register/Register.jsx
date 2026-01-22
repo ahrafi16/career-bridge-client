@@ -1,19 +1,34 @@
 import Lottie from "lottie-react";
 import { Link } from "react-router";
 import register from "../../assets/lotties/register.json";
+import { use } from "react";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 
 const Register = () => {
+
+    const { createUser } = use(AuthContext);
+
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value
-        console.log(name, email, password);
+        // console.log(name, email, password);
+
+        // create user
+        createUser(email, password)
+            .then((result) => {
+                console.log(result.user);
+                form.reset();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
     return (
-        <div className="flex items-center justify-center  px-4 py-12 min-h-screen">
+        <div className="justify-items-center min-h-screen px-4 py-12">
             {/* Soft Backdrop*/}
             <div className='fixed inset-0 -z-1 pointer-events-none'>
                 <div className='absolute left-1/2 top-20 -translate-x-1/2 w-245 h-115 bg-linear-to-tr from-indigo-800/35 to-transparent rounded-full blur-3xl' />

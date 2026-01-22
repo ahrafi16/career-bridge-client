@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
 
 const Footer = () => {
@@ -6,17 +7,16 @@ const Footer = () => {
             <div class="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl dark:text-white">
-                        Customise Your Product
+                        CareerBridge
                     </h2>
 
                     <p class="mx-auto mt-4 max-w-sm text-gray-500 dark:text-gray-400">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum maiores ipsum eos
-                        temporibus ea nihil.
+                        Connecting Skilled Talent with the Right Opportunities Across Every Industry.
                     </p>
 
-                    <a href="#" class="mt-8 inline-block rounded-full border border-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-600 hover:text-white">
+                    <Link to="/register" class="mt-8 inline-block rounded-full border border-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-600 hover:text-white">
                         Get Started
-                    </a>
+                    </Link>
                 </div>
 
                 <div class="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24 dark:border-gray-800">
@@ -42,7 +42,7 @@ const Footer = () => {
 
                     <ul class="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                            <a href="https://www.facebook.com/anjumhossain.rafi/" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                                 <span class="sr-only">Facebook</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -52,7 +52,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                            <a href="https://www.instagram.com/anjum.soothes/" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                                 <span class="sr-only">Instagram</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -62,7 +62,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                            <a href="https://www.instagram.com/anjum.soothes/" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                                 <span class="sr-only">Twitter</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -72,7 +72,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                            <a href="https://github.com/ahrafi16" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                                 <span class="sr-only">GitHub</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +82,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                            <a href="https://github.com/ahrafi16" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                                 <span class="sr-only">Dribbble</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
