@@ -1,26 +1,37 @@
-import React from 'react';
+import { BriefcaseBusiness, Clock, MapPin } from 'lucide-react';
 
-const JobCard = ({job}) => {
-    const {title}  = job;
+const JobCard = ({ job }) => {
+    const { title, company_logo, applicationDeadline, jobType, responsibilities, company, location } = job;
     return (
-        <div className="w-full border border-gray-200 p-6 rounded-xl mx-2 ">
-            <div className="flex flex-col md:flex-row items-start gap-3 md:items-center justify-between w-full text-gray-500">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
+        <div className="w-full border border-gray-200 p-6 rounded-xl">
+            <div className="flex flex-col md:flex-row items-start gap-3 md:items-center justify-between w-full text-gray-100">
+                <div className="flex flex-row items-start md:items-center gap-3">
                     <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.222 12.632c0-1.016-.082-1.758-.26-2.527H12.358v4.586h6.81c-.137 1.14-.878 2.856-2.526 4.01l-.023.153 3.668 2.842.255.025c2.334-2.155 3.68-5.327 3.68-9.09" fill="#4285f4" /><path d="M12.36 24.714c3.336 0 6.137-1.098 8.183-2.993l-3.9-3.02c-1.043.727-2.444 1.235-4.284 1.235-3.267 0-6.04-2.156-7.03-5.135l-.144.012-3.815 2.952-.05.139c2.032 4.036 6.206 6.81 11.04 6.81" fill="#34a853" /><path d="M5.327 14.801a7.6 7.6 0 0 1-.412-2.444c0-.851.151-1.675.399-2.444l-.007-.164L1.444 6.75l-.126.06A12.4 12.4 0 0 0 0 12.357c0 1.991.48 3.872 1.318 5.547z" fill="#fbbc05" /><path d="M12.36 4.778c2.32 0 3.885 1.002 4.778 1.84l3.487-3.405C18.483 1.222 15.695 0 12.359 0 7.526 0 3.352 2.773 1.32 6.81l3.996 3.103c1.002-2.98 3.776-5.135 7.043-5.135" fill="#eb4335" /></svg>
+                        <img className='w-10 h-10' src={company_logo} alt={title} />
                     </div>
-                    <div>
-                        <h3 className="text-base font-medium text-gray-800">
-                            {title}
+                    <div className='flex flex-col gap-2 items-start justify-center'>
+                        <h3 className="text-2xl font-medium text-gray-50">
+                            {company}
                         </h3>
-                        <span>Google</span>
+                        <span className='flex items-start gap-1'> <MapPin /> {location}</span>
                     </div>
                 </div>
-                <span>Jan 2024 - Present</span>
+                {/* <span>{applicationDeadline}</span> */}
             </div>
-            <ul className="list-disc px-5 mt-6 text-gray-500 space-y-2">
-                <li>Lead end-to-end development of large-scale, high-performance systems used by millions of users.</li>
-                <li>Mentor junior engineers, conduct code reviews, and uphold engineering best practices.</li>
+            <div className='my-3 space-y-2'>
+                <h2 className='text-xl'>{title}</h2>
+                <div className='flex justify-between'>
+                    <span className='flex gap-1'> <BriefcaseBusiness />{jobType}</span>
+                    <span className='flex gap-1'><Clock />
+                        {applicationDeadline}</span>
+                </div>
+            </div>
+            <ul className="list-disc px-5 mt-6 text-gray-100 space-y-2">
+                {
+                    responsibilities.map(responsibility => (
+                        <li>{responsibility}</li>
+                    ))
+                }
             </ul>
         </div>
     );
