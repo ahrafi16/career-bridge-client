@@ -1,7 +1,7 @@
 import { BriefcaseBusiness, Clock, MapPin } from 'lucide-react';
 
 const JobCard = ({ job }) => {
-    const { title, company_logo, applicationDeadline, jobType, responsibilities, company, location } = job;
+    const { title, company_logo, requirements, description, applicationDeadline, jobType, responsibilities, company, location } = job;
     return (
         <div className="w-full border border-gray-200 p-6 rounded-xl">
             <div className="flex flex-col md:flex-row items-start gap-3 md:items-center justify-between w-full text-gray-100">
@@ -26,13 +26,25 @@ const JobCard = ({ job }) => {
                         {applicationDeadline}</span>
                 </div>
             </div>
-            <ul className="list-disc px-5 mt-6 text-gray-100 space-y-2">
+            <div>
+                {description}
+            </div>
+            <div className="my-3 flex gap-3 items-center flex-wrap">
                 {
-                    responsibilities.map(responsibility => (
-                        <li>{responsibility}</li>
+                    requirements.map((req, i) => (
+                        <span key={i} className='px-2 py-1 border rounded-lg text-sm text-gray-300'>{req}</span>
                     ))
                 }
-            </ul>
+            </div>
+
+            <div className='my-3 gap-1 items-center'>
+                {
+                    responsibilities.map((responsibility, i) => (
+                        <li key={i}>{responsibility}</li>
+                    ))
+                }
+            </div>
+
         </div>
     );
 };
