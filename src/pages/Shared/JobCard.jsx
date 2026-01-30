@@ -43,7 +43,7 @@ const JobCard = ({ job }) => {
                 <p>{salaryRange.min}-{salaryRange.max} {salaryRange.currency}</p>
                 <Link to={`/jobs/${_id}`}>
                     <button className="border w-full border-slate-600 text-white rounded-md py-2 px-3 hover:bg-white/10 transition cursor-pointer">
-                        Apply Now
+                        Show Details
                     </button>
                 </Link>
             </div>
