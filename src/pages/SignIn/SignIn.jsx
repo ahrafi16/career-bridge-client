@@ -1,5 +1,5 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import login from "../../assets/lotties/login.json";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import Lottie from "lottie-react";
@@ -8,6 +8,9 @@ import SocialLogin from "../Shared/SocialLogin";
 
 const SignIn = () => {
     const { signInUser } = use(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/';
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -20,6 +23,7 @@ const SignIn = () => {
             .then((result) => {
                 console.log(result.user);
                 form.reset();
+                navigate(from);
             })
             .catch((error) => {
                 console.log(error);
@@ -67,7 +71,7 @@ const SignIn = () => {
                             </Link>
                         </p>
                     </form>
-                    <SocialLogin></SocialLogin>
+                    <SocialLogin from={from}></SocialLogin>
                 </div>
                 <div className="hidden md:block flex-1 md:w-1/2 lg:w-3/5">
                     <Lottie animationData={login} loop={true} style={{ height: 350 }} />
