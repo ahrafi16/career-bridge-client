@@ -4,6 +4,7 @@ import login from "../../assets/lotties/login.json";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import Lottie from "lottie-react";
 import SocialLogin from "../Shared/SocialLogin";
+import Swal from "sweetalert2";
 
 
 const SignIn = () => {
@@ -27,6 +28,12 @@ const SignIn = () => {
             })
             .catch((error) => {
                 console.log(error);
+                const errorMessage = error.code || "An error occurred";
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
             });
     }
     return (
