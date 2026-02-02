@@ -1,13 +1,31 @@
-import { Link } from "react-router";
+
+import UseAuth from "../../hooks/UseAuth";
 
 
 const AddJob = () => {
+
+    const { user } = UseAuth();
+
+
     const handleAddJob = e => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         console.log(data)
+
+        // process salary range data
+        const { min, max, currency, ...newJob } = data;
+        newJob.salaryRange = { min, max, currency };
+
+        // process requirements
+        const requirementsString = newJob.requirements;
+        const requirementsDirty = requirementsString.split(',');
+        const requirementsClean = requirementsDirty.map(req => req.trim());
+        newJob.requirements = requirementsClean;
+
+        // process responsibilities
+        newJob.responsibilities = newJob.responsibilities.split(',').map(res => res.trim());
     }
     return (
         <section className="px-4 md:px-16 my-10 lg:px-24 xl:px-32 w-full">
@@ -179,6 +197,7 @@ const AddJob = () => {
                         type="email"
                         name="hr_email"
                         placeholder="HR email"
+                        defaultValue={user.email}
                         className="w-full p-3 bg-transparent outline-none border border-slate-700 rounded-lg focus:border-pink-500"
                     />
                 </div>
