@@ -50,8 +50,6 @@ const JobApply = () => {
         <section className="px-4 md:px-16 my-10 lg:px-24 xl:px-32 w-full">
             <p className="text-center font-medium text-pink-600 px-10 py-2 rounded-full bg-pink-950/70 border border-pink-800 w-max mx-auto">Application Form</p>
             <h3 className="text-3xl font-semibold text-white text-center mx-auto mt-4">Apply for this job: <Link className="text-blue-500 hover:underline" to={`/jobs/${jobId}`}>Details</Link></h3>
-            <p className="text-slate-300 text-center mt-2 max-w-md mx-auto">Ready to grow your brand? Let’s connect and build something exceptional together.</p>
-
             <form onSubmit={handleApplyFormSubmit} className="grid grid-cols-1 gap-3 sm:gap-5 border border-slate-700 p-5 rounded-2xl max-w-2xl mx-auto text-slate-300 mt-16 w-full">
                 <div>
                     <p className="mb-2 font-medium">Your linkedin</p>

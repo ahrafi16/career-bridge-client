@@ -17,7 +17,9 @@ const NavBar = () => {
 
     const navLinks = [
         { name: "Home", href: "/" },
-        ...(user ? [{ name: "My Applications", href: "/myapplications" }] : []),
+        ...(user ? [
+            { name: "My Applications", href: "/myapplications" },
+            { name: "Add Job", href: "/addjob" }] : []),
         { name: "Pricing", href: "/pricing" },
         { name: "Docs", href: "/docs" },
     ];
