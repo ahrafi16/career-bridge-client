@@ -2,14 +2,18 @@ import { Link } from "react-router";
 
 
 const AddJob = () => {
-    const handleApplyFormSubmit = e => {
+    const handleAddJob = e => {
         e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data)
     }
     return (
         <section className="px-4 md:px-16 my-10 lg:px-24 xl:px-32 w-full">
             <p className="text-center font-medium text-pink-600 px-10 py-2 rounded-full bg-pink-950/70 border border-pink-800 w-max mx-auto">Post a Job</p>
             <form
-                onSubmit={handleApplyFormSubmit}
+                onSubmit={handleAddJob}
                 className="grid grid-cols-1 gap-4 sm:gap-5 border border-slate-700 p-6 rounded-2xl max-w-2xl mx-auto text-slate-300 mt-10 w-full"
             >
                 {/* Title */}
@@ -34,7 +38,6 @@ const AddJob = () => {
                     />
                 </div>
 
-                {/* Job Type */}
                 {/* Job Type */}
                 <div>
                     <p className="mb-2 font-medium">Job Type</p>
@@ -98,7 +101,7 @@ const AddJob = () => {
                         <p className="mb-2 font-medium">Salary Min</p>
                         <input
                             type="number"
-                            name="salaryMin"
+                            name="min"
                             placeholder="Minimum salary"
                             className="w-full p-3 bg-transparent outline-none border border-slate-700 rounded-lg focus:border-pink-500"
                         />
@@ -107,7 +110,7 @@ const AddJob = () => {
                         <p className="mb-2 font-medium">Salary Max</p>
                         <input
                             type="number"
-                            name="salaryMax"
+                            name="max"
                             placeholder="Maximum salary"
                             className="w-full p-3 bg-transparent outline-none border border-slate-700 rounded-lg focus:border-pink-500"
                         />
