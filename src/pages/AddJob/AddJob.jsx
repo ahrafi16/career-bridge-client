@@ -1,5 +1,7 @@
 
+import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
+import Swal from "sweetalert2";
 
 
 const AddJob = () => {
@@ -14,6 +16,42 @@ const AddJob = () => {
         const data = Object.fromEntries(formData.entries());
         console.log(data)
 
+
+        const requiredFields = [
+            'title',
+            'location',
+            'jobType',
+            'category',
+            'applicationDeadline',
+            'description',
+            'company',
+            'requirements',
+            'responsibilities',
+            'hr_email',
+            'hr_name',
+            'company_logo'
+        ];
+
+        for (let field of requiredFields) {
+            if (!data[field]?.trim()) {
+                Swal.fire({
+                    icon: "error",
+                    title: `${field.replace('_', ' ')} is required`,
+                });
+                return;
+            }
+        }
+
+        // salary validation
+        if (!min || !max || !currency) {
+            Swal.fire({
+                icon: "error",
+                title: "Complete salary information is required",
+            });
+            return;
+        }
+
+
         // process salary range data
         const { min, max, currency, ...newJob } = data;
         newJob.salaryRange = { min, max, currency };
@@ -26,6 +64,35 @@ const AddJob = () => {
 
         // process responsibilities
         newJob.responsibilities = newJob.responsibilities.split(',').map(res => res.trim());
+
+        newJob.status = "active";
+
+
+
+        // save data to db
+        axios.post('http://localhost:3000/jobs', newJob)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Job has been added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+
+            })
+            .catch(error => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: error,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
     return (
         <section className="px-4 md:px-16 my-10 lg:px-24 xl:px-32 w-full">

@@ -9,7 +9,7 @@ import ApplicationStats from "./ApplicationStats";
 const MyApplications = () => {
     const { user } = UseAuth();
     return (
-        <div>
+        <div className="my-10">
             <ApplicationStats></ApplicationStats>
             <Suspense fallback={<Loader></Loader>}>
                 <ApplicationList

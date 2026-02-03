@@ -15,8 +15,6 @@ const JobApply = () => {
         const linkedin = form.linkedin.value;
         const github = form.github.value;
         const resume = form.resume.value;
-
-        console.log(linkedin, github, resume);
         const application = {
             jobId,
             applicant: user.email,
@@ -24,6 +22,28 @@ const JobApply = () => {
             github,
             resume
         }
+        if (!linkedin.trim() || !github.trim() || !resume.trim()) {
+            Swal.fire({
+                icon: "error",
+                title: "Please provide all informations",
+                showClass: {
+                    popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+                },
+                hideClass: {
+                    popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+                }
+            });
+            return;
+        }
+
 
         axios.post('http://localhost:3000/applications', application)
             .then(res => {
@@ -40,7 +60,14 @@ const JobApply = () => {
                 }
             })
             .catch(error => {
-                console.error(error);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    theme: 'dark',
+                    title: error,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             });
 
 

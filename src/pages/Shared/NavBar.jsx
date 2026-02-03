@@ -19,7 +19,8 @@ const NavBar = () => {
         { name: "Home", href: "/" },
         ...(user ? [
             { name: "My Applications", href: "/myapplications" },
-            { name: "Add Job", href: "/addjob" }] : []),
+            { name: "Add Job", href: "/addjob" },
+            { name: "My Posted Jobs", href: "/mypostedjobs" },] : []),
         { name: "Pricing", href: "/pricing" },
         { name: "Docs", href: "/docs" },
     ];
