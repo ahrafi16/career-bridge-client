@@ -56,14 +56,7 @@ const JobsList = ({ jobsCreatedByPromise }) => {
                                             id="field"
                                             name="field"
                                             defaultValue=""
-                                            className="
-        select w-full
-        bg-gray-900
-        text-base-content
-        focus:outline-none focus:ring-2 focus:ring-primary
-        shadow-sm p-2 rounded-lg
-      "
-                                        >
+                                            className="select w-fullbg-gray-900 text-base-content focus:outline-none focus:ring-2 focus:ring-primary shadow-sm p-2 rounded-lg">
                                             <option value="" disabled>
                                                 Choose your option
                                             </option>
