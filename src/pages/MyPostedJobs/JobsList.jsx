@@ -19,7 +19,6 @@ const JobsList = ({ jobsCreatedByPromise }) => {
                             <th className="px-6 py-4">Job Title</th>
                             <th className="px-6 py-4">Category</th>
                             <th className="px-6 py-4">Deadline</th>
-                            <th className="px-6 py-4">Status</th>
                             <th className="px-6 py-4">View Applications</th>
                         </tr>
                     </thead>
@@ -51,23 +50,6 @@ const JobsList = ({ jobsCreatedByPromise }) => {
 
                                 <td className="px-6 py-4 text-gray-400">
                                     {new Date(job.applicationDeadline).toLocaleDateString()}
-                                </td>
-                                <td className="px-6 py-4">
-                                    <div className="w-56">
-                                        <select
-                                            id="field"
-                                            name="field"
-                                            defaultValue=""
-                                            className="select w-fullbg-gray-900 text-base-content focus:outline-none focus:ring-2 focus:ring-primary shadow-sm p-2 rounded-lg">
-                                            <option value="" disabled>
-                                                Choose your option
-                                            </option>
-                                            <option value="name">Full Name</option>
-                                            <option value="email">Email Address</option>
-                                            <option value="description">Project Description</option>
-                                            <option value="user_id">User ID Number</option>
-                                        </select>
-                                    </div>
                                 </td>
                                 <td className="px-6 py-4 font-semibold text-white">
                                     <Link to={`/applications/${job._id}`}>View Applications</Link>
