@@ -19,6 +19,7 @@ const JobsList = ({ jobsCreatedByPromise }) => {
                             <th className="px-6 py-4">Job Title</th>
                             <th className="px-6 py-4">Category</th>
                             <th className="px-6 py-4">Deadline</th>
+                            <th className="px-6 py-4">Counts</th>
                             <th className="px-6 py-4">View Applications</th>
                         </tr>
                     </thead>
@@ -50,6 +51,9 @@ const JobsList = ({ jobsCreatedByPromise }) => {
 
                                 <td className="px-6 py-4 text-gray-400">
                                     {new Date(job.applicationDeadline).toLocaleDateString()}
+                                </td>
+                                <td className="px-6 py-4 text-gray-400">
+                                   {job.application_count}
                                 </td>
                                 <td className="px-6 py-4 font-semibold text-white">
                                     <Link to={`/applications/${job._id}`}>View Applications</Link>
